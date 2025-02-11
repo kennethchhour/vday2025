@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day 2025</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #FF8080;
+      background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTY0ZTR0MTRzeThwNTBuem1pZWRxYWp0YTAya3VkOGEybXo1cHB1ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TxVVB6PfWMjE4/giphy.gif');
+      background-size: cover;
+      background-blend-mode: lighten;
+      /* Red background */
+      color: #ffebee;
+      /* Light pink text */
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+      /* Prevent scrolling from falling hearts */
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+
+    .heart {
+      color: #ffebee;
+      /* Bright red for hearts */
+      font-size: 2em;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    #yesButton {
+      background-color: #ffebee;
+      /* Green */
+      color: #FF4040;
+    }
+
+    #noButton {
+      background-color: #ffebee;
+      /* Red */
+      color: #FF4040;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    img {
+      width: 300px;
+      /* Adjust the size as needed */
+      border-radius: 10px;
+      margin: -20;
+    }
+
+    /* Falling hearts animation */
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    .falling-heart {
+      position: fixed;
+      top: -10%;
+      animation: fall 10s linear infinite;
+      font-size: 2em;
+      color: #FFCAD4;
+      /* Light pink hearts */
+    }
+
+    #playMusic {
+      position: fixed;
+      top: -20px;
+      left: -20px;
+      background: none;
+      border: none;
+      font-size: 2em;
+      color: #FFCAD4;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>𝑯𝒂𝒑𝒑𝒚 𝑽𝒂𝒍𝒆𝒏𝒕𝒊𝒏𝒆'𝒔 𝑱𝒆𝒏𝒓𝒊𝒆! ♡ ̆̈</h1>
+  <p>𝑾𝒊𝒍𝒍 𝒚𝒐𝒖 𝒃𝒆 𝒎𝒚 𝑽𝒂𝒍𝒆𝒏𝒕𝒊𝒏𝒆?</p>
+
+  <!-- Add your image here -->
+  <img id="romanticImage"
+    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm1yOWxucTVmdjlxdjRqdDBlcWZjMnFmMXlvaWcxYmVtc3NzengxaSZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9Zw/cd1sE2fGdlkacmPPTb/giphy.gif"
+    alt="Romantic Image">
+
+
+  <div class="buttons">
+    <button id="yesButton">𝒀𝒆𝒔</button>
+    <button id="noButton">𝑵𝒐</button>
+  </div>
+
+  <div id="responseMessage" class="hidden">
+    <p class="heart">𝒀𝒂𝒚𝒚𝒚! 𝑰 𝒍𝒐𝒗𝒆 𝒚𝒐𝒖 𝒃𝒂𝒃𝒚𝒚𝒚! 𖦹 ☼ ⋆｡˚⋆ฺ ♡ </p>
+    <img
+      src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXgwY3J0azF3cDJjazBzMmg4d2Nnam53NXg3c3dlNmpuYjdoc2ZhbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xOvhMKk3EyS1LKQtkK/giphy.gif"
+      alt="Celebration" style="width: 300px; border-radius: 10px; margin: 20px;">
+  </div>
+
+  <!-- Falling hearts -->
+  <!-- <div class="falling-heart" style="left: 10%;">❤</div>
+  <div class="falling-heart" style="left: 30%; animation-delay: 2s;">❤</div>
+  <div class="falling-heart" style="left: 50%; animation-delay: 4s;">❤</div>
+  <div class="falling-heart" style="left: 70%; animation-delay: 6s;">❤</div>
+  <div class="falling-heart" style="left: 90%; animation-delay: 8s;">❤</div> -->
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="playMusic">☊</button>
+
+  <script>
+    const audio = document.getElementById("bgMusic");
+    const playButton = document.getElementById("playMusic");
+    // JavaScript to handle button clicks
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const responseMessage = document.getElementById('responseMessage');
+    const romanticImage = document.getElementById('romanticImage');
+
+    playButton.addEventListener("click", () => {
+      audio.currentTime = 54; // Start at 10 seconds
+      audio.play();
+      playButton.style.display = "none"; // Hide button after playing
+    });
+
+    audio.addEventListener("loadedmetadata", () => {
+      audio.currentTime = 54; // Start at 53 seconds
+    });
+
+    yesButton.addEventListener('click', () => {
+      responseMessage.classList.remove('hidden');
+      document.querySelector('.buttons').classList.add('hidden');
+      romanticImage.classList.add('hidden');
+    });
+
+    noButton.addEventListener('mouseover', () => {
+      // Move the "No" button randomly when hovered
+      const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.position = 'absolute';
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    });
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("falling-heart");
+      heart.innerHTML = "❤";
+
+      // Random position (0% to 100% of the screen width)
+      const randomLeft = Math.random() * 100;
+      heart.style.left = `${randomLeft}%`;
+
+      // Random animation delay (0s to 5s)
+      const randomDelay =  Math.random() * 5;
+      heart.style.animationDelay = `${randomDelay}s`;
+
+      // Random size (1.5em to 3em)
+      const randomSize = Math.random() * 1.5 + 1.5;
+      heart.style.fontSize = `${randomSize}em`;
+
+      document.body.appendChild(heart);
+
+      // Remove heart after animation completes (adjust timing if needed)
+      setTimeout(() => {
+        heart.remove();
+      }, 10800);
+    }
+
+    // Generate hearts at random intervals
+    setInterval(createHeart, 700); // Adjust speed as needed
+  </script>
+</body>
+
+</html>
